@@ -65,7 +65,7 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
                 ->setPage($data_num,$page_size)
                 ->addRightButton('custom',array('title'=>'修改','href'=>U('admin/adminTest/editAdminTest',array('id'=>'__id__'))))
                 ->addRightButton('custom',array('title'=>'测试','href'=>U('admin/adminTest/startAdminTest',array('id'=>'__id__'))))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteAdminTest','data-itemname'=>'测试'))
+                ->addRightButton('confirm',array('data-action'=>'deleteAdminTest','data-itemname'=>'测试'))
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');
     }

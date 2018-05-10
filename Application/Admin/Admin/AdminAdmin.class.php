@@ -32,7 +32,7 @@ class AdminAdmin extends AdminBaseAdmin {
                 ->setTableDataList($data_list)
                 ->setPage($data_num,$page_size)
                 ->addRightButton('layer',array('data-action'=>'editAdmin','data-width'=>"800px",'data-height'=>'520px','data-title'=>'编辑-管理员'))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteAdmin','data-itemname'=>'管理员'))
+                ->addRightButton('confirm',array('data-action'=>'deleteAdmin','data-itemname'=>'管理员'))
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');
     }

@@ -27,7 +27,7 @@ class AdminGroupAdmin extends AdminBaseAdmin {
                 ->addTableColumn('right_button', '操作', 'btn')
                 ->setTableDataList($data_list)
                 ->addRightButton('custom',array('title'=>'修改','href'=>U('Admin/Admin/editAdminGroup',array('id'=>'__id__'))))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteAdminGroup','data-itemname'=>'管理组'))
+                ->addRightButton('confirm',array('data-action'=>'deleteAdminGroup','data-itemname'=>'管理组'))
                 ->alterTableData(
                     array('key' => 'id', 'value' => '1'),
                     array('right_button' => $right_button)

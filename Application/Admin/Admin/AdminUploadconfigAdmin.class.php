@@ -43,7 +43,7 @@ class AdminUploadconfigAdmin extends AdminBaseAdmin {
                 ->addTableColumn('right_button', '操作', 'btn')
                 ->setTableDataList($data_list)
                 ->addRightButton('layer',array('data-action'=>'editAdminUploadconfig','data-width'=>"800px",'data-height'=>'1050px','data-title'=>'编辑-上传配置'))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteAdminUploadconfig','data-itemname'=>'上传配置'))
+                ->addRightButton('confirm',array('data-action'=>'deleteAdminUploadconfig','data-itemname'=>'上传配置'))
                 ->setPage($data_num,$page_size)
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');

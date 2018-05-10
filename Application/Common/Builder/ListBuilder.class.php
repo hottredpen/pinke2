@@ -329,7 +329,7 @@ class ListBuilder extends CommonBaseController {
                 $this->_right_button_list[] = $my_attribute;
                 break;
             // 带有提示窗口的删除
-            case 'delete_confirm':
+            case 'confirm':
                 // 预定义按钮属性以简化使用
                 $my_attribute['name']  = 'delete';
                 $my_attribute['title']         = '删除';

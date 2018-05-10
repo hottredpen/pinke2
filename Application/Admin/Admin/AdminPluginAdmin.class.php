@@ -37,7 +37,7 @@ class AdminPluginAdmin extends AdminBaseAdmin {
                 ->setTableDataList($data_list)
                 ->setPage($data_num,$page_size)
                 ->addRightButton('custom',array('href'=>U('admin/__name__/index'),'class'=>'label label-success','title'=>'管理'))
-                ->addRightButton('delete_confirm',array('data-uri'=>U('admin/admin/uninstall_plugin',array('name'=>'__name__')),'data-itemname'=>'管理员','title'=>'卸载','data-msg'=>'确定进行此操作?'))
+                ->addRightButton('confirm',array('data-uri'=>U('admin/admin/uninstall_plugin',array('name'=>'__name__')),'data-itemname'=>'管理员','title'=>'卸载','data-msg'=>'确定进行此操作?'))
                 ->alterTableData(
                     array('key' => 'status', 'value' => '-1'),
                     array('right_button' => $right_button)

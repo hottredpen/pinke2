@@ -26,7 +26,7 @@ class AdminMenuAdmin extends AdminBaseAdmin {
                 ->setTableDataList($data_list)
                 ->addRightButton('layer',array('name'=>'add_sub_menu','title'=>'添加子菜单','data-action'=>'addAdminMenu','data-width'=>"600px",'data-height'=>'650px','data-title'=>'新增-菜单'))
                 ->addRightButton('layer',array('data-action'=>'editAdminMenu','data-width'=>"600px",'data-height'=>'650px','data-title'=>'编辑-菜单'))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteAdminMenu','data-itemname'=>'菜单'))
+                ->addRightButton('confirm',array('data-action'=>'deleteAdminMenu','data-itemname'=>'菜单'))
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');
     }
