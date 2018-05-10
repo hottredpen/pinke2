@@ -104,11 +104,11 @@
                     <ul class="nav-main">
                         <volist name="left_menu" id="val" >
                             <li class="open j_left_menu_top_tab_name j_left_menu_top_tab_name_{$val['top_tab_name']}" style="display: none;">
-                                <a class="nav-submenu j_menu_name" data-menu-name="{$val.name}" data-toggle="nav-submenu" href="javascript:void(0);"><i class="si si-wrench"></i><span class="sidebar-mini-hide">{$val.name}</span></a>
+                                <a class="nav-submenu j_menu_name" data-menu-name="{$val.name}" data-toggle="nav-submenu" href="javascript:void(0);"><i class="{$val.icon|common_default='si si-wrench'}"></i><span class="sidebar-mini-hide">{$val.name}</span></a>
                                 <ul>
                                     <volist name="val['sub']" id="sval" >
                                         <li>
-                                            <a class="j_left_menu_mca j_left_menu_mca_admin_{$sval['controller_name']|strtolower}_{$sval['action_name']|strtolower}"   href="{:U('admin/'.$sval['controller_name'].'/'.$sval['action_name'])}{$sval.data}" ><i class="fa fa-fw fa-wrench"></i>{$sval.name}</a>
+                                            <a class="j_left_menu_mca j_left_menu_mca_admin_{$sval['controller_name']|strtolower}_{$sval['action_name']|strtolower}"   href="{:U('admin/'.$sval['controller_name'].'/'.$sval['action_name'])}{$sval.data}" ><i class="{$sval.icon|common_default='fa fa-fw fa-wrench'}"></i>{$sval.name}</a>
                                         </li>
                                     </volist>
                                 </ul>
@@ -168,7 +168,7 @@
             </li>
             <volist name="top_menus" id="val">
                 <li class="j_top_menu_top_tab_name j_top_menu_top_tab_name_{$val['controller_name']} hidden-xs hidden-sm  <php>if(strtolower(CONTROLLER_NAME) == $val['controller_name']){ echo 'active';}</php>">
-                    <a href="{:U($val['url'])}"><i class="fa fa-fw fa-gear"></i> {$val['name']}</a>
+                    <a href="{:U($val['url'])}"><i class="{$val.icon|common_default='fa fa-fw fa-gear'}"></i> {$val['name']}</a>
                 </li>
             </volist>
         </ul>

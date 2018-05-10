@@ -425,7 +425,7 @@ class ListBuilder extends CommonBaseController {
                 switch ($column['type']) {
                      // 图标
                     case 'icon':
-                        $data[$column['name']] = '<i class="fa '.$data[$column['name']].'"></i>';
+                        $data[$column['name']] = '<i class="'.$data[$column['name']].'"></i>';
                         break;
                     // 日期
                     case 'date':
@@ -466,7 +466,7 @@ class ListBuilder extends CommonBaseController {
                                                         <input '.$is_checked.' type="checkbox"><span></span>
                                                 </label>';
                         break;
-                    // 状态（目前也具有开关功能，后期可能为统一使用switch为ajax的操作）
+                    // 状态
                     case 'status':
                         switch($data[$column['name']]){
                             case '-1':

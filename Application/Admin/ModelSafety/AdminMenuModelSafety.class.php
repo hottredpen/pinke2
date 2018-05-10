@@ -11,12 +11,12 @@ class AdminMenuModelSafety extends CommonModelSafety{
             'actions'     => array(
                 'createAdminMenu' => array(
                     'action' => 'create',
-                    'field'  => 'name,pid,module_name,controller_name,action_name,data',
+                    'field'  => 'name,pid,module_name,controller_name,action_name,icon,data',
                     'key'    => 11
                 ),
                 'updateAdminMenu' => array(
                     'action' => 'update',
-                    'field'  => 'id,name,pid,module_name,controller_name,action_name,data',
+                    'field'  => 'id,name,pid,module_name,controller_name,action_name,icon,data',
                     'key'    => 12,
                 ),
                 'ajaxAdminMenu' => array(

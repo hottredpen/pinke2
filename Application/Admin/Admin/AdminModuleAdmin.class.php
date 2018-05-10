@@ -20,6 +20,8 @@ class AdminModuleAdmin extends AdminBaseAdmin {
         $right_button['no'][0]['title']     = '安装';
         $right_button['no'][0]['attribute'] = 'class="label label-success" href='.U('admin/admin/before_install_module',array('name'=>'__name__')).'';
 
+        $right_button['no'][0]['title']     = '系统模块无法删除';
+        $right_button['no'][0]['attribute'] = 'class="label label-warning" href="#"';
 
         $builder  = D('Common/List','Builder');
         $builder->theme('one')->setMetaTitle('模块列表')
@@ -41,6 +43,10 @@ class AdminModuleAdmin extends AdminBaseAdmin {
                 ->addRightButton('custom',array('href'=>U('admin/admin/before_uninstall_module',array('id'=>'__id__')),'title'=>'卸载','class'=>'label label-danger'))
                 ->alterTableData(
                     array('key' => 'status', 'value' => '-1'),
+                    array('right_button' => $right_button)
+                )
+                ->alterTableData(
+                    array('key' => 'id', 'value' => '1'),
                     array('right_button' => $right_button)
                 )
                 ->assign_builder()
