@@ -5,12 +5,6 @@ use Admin\HandleObject\BaseHandleObject;
  * 管理员操作对象
  */
 class AdminTestAdminHandleObject extends BaseHandleObject {
-    protected $uid;
-    function __construct($uid=0) {
-        parent::__construct($uid);
-        define('PK_ADMIN_HANDLEOBJECT','AdminTest');
-        $this->uid = (int)$uid;
-    }
 
     public function createAdminTest(){
 

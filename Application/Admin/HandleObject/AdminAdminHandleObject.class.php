@@ -6,12 +6,7 @@ namespace Admin\HandleObject;
  */
 class AdminAdminHandleObject extends BaseHandleObject{
 
-	protected $uid;
-    function __construct($uid=0) {
-        parent::__construct($uid);
-        $this->uid = (int)$uid;
-    }
-
+    // 安装模块
     public function installModule(){
         $module_name = I('name','','trim');
 

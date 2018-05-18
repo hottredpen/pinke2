@@ -67,6 +67,10 @@ function common_cache_last_token($token){
 //     C('TRANS_END_METHOD',__METHOD__);   // 多层事务嵌套时，获取最后一个common_plus_commit_trans或common_plus_rollback_trans的__METHOD__
 // 
 // 
+function common_plus_trans_origin($method_name){
+    C('TRANS_START_METHOD',$method_name);
+    C('TRANS_END_METHOD',$method_name);  
+}
 function common_plus_start_trans($cur_method_name="",$model){
     if( null === C('TRANS_START_METHOD') ){
         C('TRANS_START_METHOD',$cur_method_name);
