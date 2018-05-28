@@ -11,8 +11,12 @@ require.config({
             exports    : 'pjax'
         },
         'nprogress':{
-            deps : ['css!nprogress_css'],
-            exports: 'nprogress'
+            deps       : ['css!nprogress_css'],
+            exports    : 'nprogress'
+        },
+        'ueditor' : {
+            deps       : ['ueditor_config'],
+            exports    : 'ueditor'
         },
         // 以下非核心
         'jquery_datepicker' : ['jquery','css!jquery_datepicker_css'],
@@ -46,6 +50,8 @@ require.config({
         // fancybox
         // 'fancybox'        : "../../../bower_components/fancybox/dist/jquery.fancybox.min",
         // 'fancybox_css'    : "../../../bower_components/fancybox/dist/jquery.fancybox",
+        'ueditor'         : "../../../static/pk/ueditor/ueditor.all.min",
+        'ueditor_config'  : "../../../static/pk/ueditor/ueditor.config",
 
         // 以下非核心
         'artdialog'             : "../../../bower_components/artDialog/dist/dialog-min",
