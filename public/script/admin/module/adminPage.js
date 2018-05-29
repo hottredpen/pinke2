@@ -22,6 +22,7 @@ require.config({
         'jquery_datepicker' : ['jquery','css!jquery_datepicker_css'],
         'jquery_fancybox'   : ['jquery','css!jquery_fancybox_css'],
         'jquery_treetable'  : ['jquery'],
+        'jquery_nestable'   : ['jquery'],
     },
     paths: {
         // domReady
@@ -61,6 +62,7 @@ require.config({
         'jquery_treetable'      : "../../../bower_components/jquery-treetable/jquery.treetable",
         'jquery_fancybox'       : "../../../bower_components/fancybox/dist/jquery.fancybox.min",
         'jquery_fancybox_css'   : "../../../bower_components/fancybox/dist/jquery.fancybox",
+        'jquery_nestable'       : "../../../bower_components/nestable/jquery.nestable",
 
     },
     map: {

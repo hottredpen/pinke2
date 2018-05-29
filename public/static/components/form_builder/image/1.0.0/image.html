@@ -93,27 +93,24 @@
             <php>}</php>
         </label>
         <div class="{$form['item_col']|common_builder_form_item_col_echo_r} ">
-
-
-
             <div class="col-xs-12 js-upload-image">
-                <div id="file_list_{$form.name}" class="uploader-list">
+                <div id="j_file_list_{$form.name}" class="uploader-list">
                 <php>
                     $_img_url_ = common_trans_sub_image(common_format_cover_id($form['value']));
                 </php>
                 <notempty name="form['value']">
                     <div class="file-item thumbnail">
                         <a class="img-link" data-fancybox="gallery" href="{$_img_url_|common_trans_origin_image}" target="_self">
-                            <img src="{$_img_url_}" width="200" height="200">
+                            <img src="{$_img_url_}" width="125" height="125">
                         </a>
                         <i class="fa fa-times-circle remove-picture"></i>
                     </div>
                 </notempty>
                 </div>
                 <div class="clearfix"></div>
-                <input type="hidden" data-name="{$form.name}" data-multiple="false" data-size="0" data-ext='' id="{$form.name}" value="">
-                <div id="picker_{$form.name}">上传单张图片</div>
-                <input type="hidden" id="j_{$form['name']}_input"    name="{$form['options']['upload_config']['typename']}_{$form['name']}" value="">
+                <input  id="j_webuploader_{$form.name}"  type="hidden" data-name="{$form.name}" data-multiple="false" data-size="0" data-ext=''value="">
+                <div    id="j_uploader_picker_{$form.name}">上传单张图片</div>
+                <!-- <input type="hidden" id="j_{$form['name']}_input"    name="{$form['options']['upload_config']['typename']}_{$form['name']}" value=""> -->
                 <input type="hidden" id="j_{$form['name']}_id_input" name="{$form['name']}" value="{$form['value']}">
 
                 <notempty name="form.tip">

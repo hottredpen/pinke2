@@ -20,6 +20,7 @@ class FormBuilder extends FormBaseBuilder {
 		$this->_component_alias = array(
 			'icon'                        => 'icon@1.0.0',
 			'image'                       => 'image@1.0.0',
+			'images'                      => 'images@1.0.0',
 			'checkbox'                    => 'checkbox@1.0.0',
 			'cover_config_by_category_id' => 'cover_config_by_category_id@1.0.0',
 			'cpk_pictures'                => 'cpk_pictures@1.0.0',

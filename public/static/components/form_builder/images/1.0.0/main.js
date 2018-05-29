@@ -1,11 +1,11 @@
-define(['jquery'],function($){
+define(['jquery','jquery_nestable'],function($){
 
 var component = {
     getName : function(){
-        return "image@1.0.0";
+        return "images@1.0.0";
     },
     getAuthKey : function(){
-        return "e369853df766fa44e1ed-51eee1e2b42d45493cec-b4b147bc523828731f1a-ed3164f2dde9074e76aab8564de5024f"; // 检测是授权组件
+        return "a5771bce93e200c36f7c-842f3298f90f91ca8f70-b5b147bc52282873111a-3e82ed46969b8845a86cb9af85dfcd9e"; // 检测是授权组件
     },
 	createObj : function(){
 		var obj = {};
@@ -37,17 +37,15 @@ var component = {
 		function _onDocumentBtn(){
 
             // 图片上传
-            // $('.js-upload-image').each(function () {
                 var $input_file       = $('#j_webuploader_'+config.formItemName);
                 var $input_file_name  = $input_file.data('name');
-                var $file_ids_input   = $('#j_'+$input_file_name+'_id_input');
+                var $file_ids_input   = $('#j_'+$input_file_name+'_ids_input');
                 // 是否多图片上传
                 var $multiple         = $input_file.data('multiple');
                 // 允许上传的后缀
                 var $ext              = $input_file.data('ext');
                 // 图片限制大小
                 var $size             = $input_file.data('size');
-
                 // 图片列表
                 var $file_list        = $('#j_file_list_' + $input_file_name);
                 // 优化retina, 在retina下这个值是2
@@ -71,7 +69,7 @@ var component = {
                     // 选择图片的按钮。可选。
                     // 内部根据当前运行是创建，可能是input元素，也可能是flash.
                     pick: {
-                        id: '#j_uploader_picker_' + $input_file_name,
+                        id: '#picker_' + $input_file_name,
                         multiple: $multiple
                     },
                     // 图片限制大小
@@ -87,23 +85,22 @@ var component = {
                 // 当有文件添加进来的时候
                 uploader.on( 'fileQueued', function( file ) {
                     var $li = $(
-                            '<div id="' + file.id + '" class="file-item js-gallery thumbnail">' +
+                            '<li id="' + file.id + '" class="file-item js-gallery thumbnail  dd-item " data-todo="后面这个 id:todo" data-id="' + file.id + '" >' +
                             '<a class="img-link" href="">'+
                             '<img>' +
                             '</a>'+
                             '<div class="info">' + file.name + '</div>' +
                             '<i class="fa fa-times-circle remove-picture"></i>' +
-                            ($multiple ? '<i class="fa fa-fw fa-arrows move-picture"></i>' : '') +
+                            ($multiple ? '<i class="fa fa-fw fa-arrows move-picture dd-handle"></i>' : '') +
                             '<div class="progress progress-mini remove-margin active" style="display: none">' +
                             '<div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>' +
                             '</div>' +
                             '<div class="file-state img-state"><div class="bg-info">正在读取...</div>' +
-                            '</div>'
+                            '</li>'
                         ),
                         $img = $li.find('img');
 
-                    $file_list.html( $li );
-
+                    $file_list.append( $li );
                     // 创建缩略图
                     // 如果为非图片文件，可以不用调用此方法。
                     // thumbnailWidth x thumbnailHeight 为 100 x 100
@@ -128,14 +125,23 @@ var component = {
                 // 文件上传成功
                 uploader.on( 'uploadSuccess', function( file, response ) {
                     var $li = $( '#'+file.id );
+
                     if (response.code) {
-                        $file_ids_input.val(response.data.fileid);
+                        if ($file_ids_input.val()) {
+                            $file_ids_input.val($file_ids_input.val() + ',' + response.data.fileid);
+                        } else {
+                            $file_ids_input.val(response.data.fileid);
+                        }
+                        $li.find('.remove-picture').attr('data-id', response.data.fileid);
                     }
+
                     $li.find('.file-state').html('<div class="bg-'+response.class+'">'+response.msg+'</div>');
                     $li.find('a.img-link').attr('href', response.path);
+
                     setTimeout(function () {
                         $li.find('.file-state').remove();
                     }, 1500);
+
                     // 文件上传成功后的自定义回调函数
                     // todo
                 });
@@ -173,11 +179,22 @@ var component = {
 
                 // 删除图片
                 $file_list.delegate('.remove-picture', 'click', function(){
-                    $file_ids_input.val('');
+                    var id = $(this).data('id'),
+                        ids = $file_ids_input.val().split(',');
+
+                    if (id) {
+                        for (var i = 0; i < ids.length; i++) {
+                            if (ids[i] == id) {
+                                ids.splice(i, 1);
+                                break;
+                            }
+                        }
+                        $file_ids_input.val(ids.join(','));
+                    }
                     $(this).closest('.file-item').remove();
                 });
 
-            // });
+                $('.dd').nestable({ maxDepth: 1 });
 		}
 
 		return obj;
