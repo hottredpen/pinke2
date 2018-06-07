@@ -76,6 +76,18 @@ function is_plugins_pass($name){
     }   
     return false;
 }
+function is_res_pass($res_array=array()){
+    $all_is_ok = true;
+    foreach ($res_array as $key => $value) {
+        if($value['error'] > 0){
+            $all_is_ok = false;
+        }
+        if((int)$value['error'] == 0 && (string)$value['info'] == ''){
+            $all_is_ok = false;
+        }
+    }
+    return $all_is_ok;
+}
 /**
  * 通用的特殊符号过滤
  * todo 有待区分

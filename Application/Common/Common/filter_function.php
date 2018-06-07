@@ -59,7 +59,7 @@ function common_filter_strs($str,$strlenMax=99){
     }
     return $newstr;
 }
-function common_filter_editor_content($str){
+function common_filter_editor_content($str=""){
     $str = htmlspecialchars($str);
     return $str;
 }

@@ -5,6 +5,11 @@ namespace Admin\HandleObject;
  * 管理员操作对象
  */
 class AdminBaseHandleObject extends BaseHandleObject {
+    protected $uid;
+    function __construct($uid=0) {
+        parent::__construct($uid);
+        $this->uid = (int)$uid;
+    }
     /**
      * 登录
      */
