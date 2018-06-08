@@ -61,7 +61,7 @@ class Model {
     // 链操作方法列表
     protected $methods          =   array('strict','order','alias','having','group','lock','distinct','auto','filter','validate','result','token','index','force');
     protected $not_allow_field     =   ''; // 计算属性，需要过滤
-    protected $scence_id        = 0;
+    protected $scene_id        = 0;
 
     /**
      * 架构函数
@@ -1023,7 +1023,7 @@ class Model {
 
         // 状态
         $type = $type?:(!empty($data[$this->getPk()])?self::MODEL_UPDATE:self::MODEL_INSERT);
-        $this->scence_id = $type; // 记录场景id ,hottredpen@126.com
+        $this->scene_id = $type; // 记录场景id ,hottredpen@126.com
 
         // 检查字段映射
 		$data =	$this->parseFieldsMap($data,0);

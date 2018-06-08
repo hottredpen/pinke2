@@ -10,7 +10,7 @@ class AdminTestService{
 
         $module_name = $test_data['module_name'];
         $model_name  = $test_data['model_name'];
-        $scence_id    = $test_data['scence_id'];
+        $scene_id    = $test_data['scene_id'];
         $group_id    = (int)$test_data['group_id'];
 
         $Plugins     = $test_data['is_plugin'] ? 'Plugins://' : '';
@@ -18,9 +18,9 @@ class AdminTestService{
         $modelTest   = D($Plugins.$module_name.'/'.$model_name,'Test');
 
         if($is_origin){
-            $tables_arr  = $modelTest->getLogOriginData($scence_id);
+            $tables_arr  = $modelTest->getLogOriginData($scene_id);
         }else{
-            $tables_arr  = $modelTest->getLogUpdateData($scence_id);
+            $tables_arr  = $modelTest->getLogUpdateData($scene_id);
         }
         C('admin_test.post_data',unserialize($test_data['success_post_data']));
         $admin_test_detail_model = M('admin_test_detail');
@@ -45,7 +45,7 @@ class AdminTestService{
 
         $module_name = $test_data['module_name'];
         $model_name  = $test_data['model_name'];
-        $scence_id    = $test_data['scence_id'];
+        $scene_id    = $test_data['scene_id'];
         $group_id    = (int)$test_data['group_id'];
 
         $Plugins     = $test_data['is_plugin'] ? 'Plugins://' : '';
@@ -53,7 +53,7 @@ class AdminTestService{
         $modelTest   = D($Plugins.$module_name.'/'.$model_name,'Test');
 
         // 获取数据断言信息
-        $assert_data = $modelTest->getAssertDataBySenceId($scence_id);
+        $assert_data = $modelTest->getAssertDataBySenceId($scene_id);
         // 获取post的数据
         C('admin_test.post_data',unserialize($test_data['success_post_data']));
         // 变量赋值

@@ -11,14 +11,14 @@ class AdminTestAdminHandleObject extends BaseHandleObject {
         $model = D('Plugins://AdminTest/AdminTest');
         $post['module_name']       = $_POST['_pk_module_name'];
         $post['model_name']        = $_POST['_pk_model_name'];
-        $post['scence_id']          = $_POST['_pk_scence_id'];
+        $post['scene_id']          = $_POST['_pk_scene_id'];
         $post['group_id']          = $_POST['_pk_group_id'];
         $post['handle_object']     = $_POST['_pk_handle_object'];
         $post['handle_action']     = $_POST['_pk_handle_action'];
         $post['is_plugin']         = $_POST['_pk_is_plugin'];
         $post['success_post_data'] = $this->_success_post_data($_POST); // todo剔除无用的
         $_POST = null;
-        if (!$model->field('module_name,model_name,scence_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,11)){
+        if (!$model->field('module_name,model_name,scene_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,11)){
             return array("error"=>1,"info"=>$model->getError());
         }
         // test
@@ -36,14 +36,14 @@ class AdminTestAdminHandleObject extends BaseHandleObject {
         $model = D('Plugins://AdminTest/AdminTest');
         $post['module_name']       = $_POST['_pk_module_name'];
         $post['model_name']        = $_POST['_pk_model_name'];
-        $post['scence_id']          = $_POST['_pk_scence_id'];
+        $post['scene_id']          = $_POST['_pk_scene_id'];
         $post['group_id']          = $_POST['_pk_group_id'];
         $post['handle_object']     = $_POST['_pk_handle_object'];
         $post['handle_action']     = $_POST['_pk_handle_action'];
         $post['is_plugin']         = $_POST['_pk_is_plugin'];
         $post['success_post_data'] = $this->_success_post_data($_POST); // todo剔除无用的
         $_POST = null;
-        if (!$model->field('id,module_name,model_name,scence_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,12)){
+        if (!$model->field('id,module_name,model_name,scene_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,12)){
             return array("error"=>1,"info"=>$model->getError());
         }
         // test

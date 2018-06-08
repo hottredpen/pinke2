@@ -25,28 +25,28 @@ class CommonTest{
         return $this->_config_data['controller_name'];
     }
 
-    public function getUnitTestData($scence_id=11,$group_id=0,$test_id=0){
-        $data['scence_id'] = $scence_id;
+    public function getUnitTestData($scene_id=11,$group_id=0,$test_id=0){
+        $data['scene_id'] = $scene_id;
         $data['group_id'] = $group_id;
-        $data['data']     = $this->_format_data_by_test_id($this->_config_data['units'][$scence_id]['test_data'][$group_id],$group_id,$test_id);
-        $data['success_assert'] = $this->_config_data['units'][$scence_id]['success_assert'];
+        $data['data']     = $this->_format_data_by_test_id($this->_config_data['units'][$scene_id]['test_data'][$group_id],$group_id,$test_id);
+        $data['success_assert'] = $this->_config_data['units'][$scene_id]['success_assert'];
         return $data;
     }
     
-    public function getAssertDataBySenceId($scence_id=0){
-        return $this->_config_data['units'][$scence_id]['assert_data'];
+    public function getAssertDataBySenceId($scene_id=0){
+        return $this->_config_data['units'][$scene_id]['assert_data'];
     }
 
-    public function getLogOriginData($scence_id=11){
-        return $this->_config_data['units'][$scence_id]['log_origin_data'];
+    public function getLogOriginData($scene_id=11){
+        return $this->_config_data['units'][$scene_id]['log_origin_data'];
     }
 
-    public function getLogUpdateData($scence_id=11){
-        return $this->_config_data['units'][$scence_id]['log_update_data'];
+    public function getLogUpdateData($scene_id=11){
+        return $this->_config_data['units'][$scene_id]['log_update_data'];
     }
 
-    public function formPostItems($scence_id=11,$group_id=0){
-        $before_form = $this->_config_data['units'][$scence_id]['test_data'][$group_id];
+    public function formPostItems($scene_id=11,$group_id=0){
+        $before_form = $this->_config_data['units'][$scene_id]['test_data'][$group_id];
         // 测试的items目前只支持text和textarea
         $items_arr      = array();
         $this->_post_default_value = array();
@@ -72,7 +72,7 @@ class CommonTest{
         return $this->_post_default_value;
     }
 
-    private function _item_options_format_for_test($item,$scence_id=11){
+    private function _item_options_format_for_test($item,$scene_id=11){
         list($name,$type,$title,$tip,$options,$extra)  = $item;
         return array(
             'name'    => $name,
@@ -108,16 +108,16 @@ class CommonTest{
         return $arr;
     }
     // todo 待废弃
-    public function beforeFormItems($scence_id=11){
-        $before_form = $this->_config_data['units'][$scence_id]['test_config']['before_form'];
+    public function beforeFormItems($scene_id=11){
+        $before_form = $this->_config_data['units'][$scene_id]['test_config']['before_form'];
         $items_arr   = array();
         foreach ($before_form as $key => $value) {
-            array_push($items_arr,$this->_form_item_format($value,$scence_id));
+            array_push($items_arr,$this->_form_item_format($value,$scene_id));
         }
         return $items_arr;
     }
     // todo 待废弃
-    private function _form_item_format($item,$scence_id){
+    private function _form_item_format($item,$scene_id){
         list($name,$type,$title,$tip,$options,$extra)  = $item;
 
         return array(
@@ -129,18 +129,18 @@ class CommonTest{
             'extra'   => $extra
         );
     }
-    public function get_assert_data($scence_id=11){
-        $data =  $this->_config_data['units'][$scence_id]['assert_data'];
+    public function get_assert_data($scene_id=11){
+        $data =  $this->_config_data['units'][$scene_id]['assert_data'];
         return $data;
     }
-    public function getSuccessAssert($scence_id=0){
-        return $this->_config_data['units'][$scence_id]['success_assert'];
+    public function getSuccessAssert($scene_id=0){
+        return $this->_config_data['units'][$scene_id]['success_assert'];
     }
-    public function getHandleAction($scence_id=0){
-        return $this->_config_data['units'][$scence_id]['handle_action'];
+    public function getHandleAction($scene_id=0){
+        return $this->_config_data['units'][$scene_id]['handle_action'];
     }
-    public function getTestTitle($scence_id=0){
-        return $this->_config_data['units'][$scence_id]['test_title'];
+    public function getTestTitle($scene_id=0){
+        return $this->_config_data['units'][$scene_id]['test_title'];
     }
     public function initTestData(){
         // $this->_visitor_id = $visitor_id;
@@ -157,7 +157,7 @@ class CommonTest{
     public function getConfigData(){
         return $this->_config_data;
     }
-    // public function getActionName($scence_id=0){
-    //     return $this->_config_data['units'][$scence_id]['handle_action'];
+    // public function getActionName($scene_id=0){
+    //     return $this->_config_data['units'][$scene_id]['handle_action'];
     // }
 }
