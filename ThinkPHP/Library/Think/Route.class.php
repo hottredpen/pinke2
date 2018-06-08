@@ -129,6 +129,7 @@ class Route {
                 return false;
             }
         }
+        C('pk_url_restful_param',$var);  // 获取路由中restful中url部分的参数
         // 成功匹配后返回URL中的动态变量数组
         return $var;
     }
