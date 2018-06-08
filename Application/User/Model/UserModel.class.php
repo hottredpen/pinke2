@@ -18,7 +18,7 @@ class UserModel extends Model{
 
     protected $tmp_data;
     protected $old_data;
-    protected $sence_id;
+    protected $scence_id;
 
 
     //字段衍射
@@ -73,7 +73,7 @@ class UserModel extends Model{
 
     protected $_validate = array(
         // 后台添加
-        array('username', 'get_sence_id_is_admin_add', 'return_true', self::MUST_VALIDATE,'callback',self::ADMIN_ADD),
+        array('username', 'get_scence_id_is_admin_add', 'return_true', self::MUST_VALIDATE,'callback',self::ADMIN_ADD),
         array('username', 'is_username_pass', '已经存在用户名', self::MUST_VALIDATE,'callback',self::ADMIN_ADD),
         array('nickname', 'is_notempty_pass', '昵称不能为空', self::MUST_VALIDATE,'function',self::ADMIN_ADD),
         array('password', 'is_passwordlength_pass', '密码长度必须大于4个字符', self::MUST_VALIDATE,'callback',self::ADMIN_ADD),
@@ -118,7 +118,7 @@ class UserModel extends Model{
     );
     protected function _after_insert($data, $options) {
         // $id = $this->getLastInsID();
-        // if($this->sence_id == self::ADMIN_ADD){
+        // if($this->scence_id == self::ADMIN_ADD){
         //     // todo 转移因为此处无业务（临时方法）
         //     $res_company = D('Company/Company','Service')->reg_common_companay($id,"company_user_id_".$id);
         //     $res_store   = D('Store/Store','Service')->reg_store($id);
@@ -214,8 +214,8 @@ class UserModel extends Model{
         return md5(get_client_ip().time());
     }
 
-    protected function get_sence_id_is_admin_add(){
-        $this->sence_id = self::ADMIN_ADD;
+    protected function get_scence_id_is_admin_add(){
+        $this->scence_id = self::ADMIN_ADD;
         return true;
     }
 

@@ -49,7 +49,7 @@ class AdminTestLog_batModel extends CommonModel{
         array('is_real_do', 'get_is_real_do', 'return_true', self::MUST_VALIDATE,'callback',self::ADMIN_TEST_BEFORE),
         // array('uuid', 'get_uuid', 'return_true', self::MUST_VALIDATE,'callback',self::ADMIN_TEST_BEFORE),
         array('model_name', 'is_model_name_pass', '[test]该模型已经关闭测试', self::MUST_VALIDATE,'callback',self::ADMIN_TEST_BEFORE),
-        array('sence_id', 'is_sence_id_pass', '[test]不存在该场景', self::MUST_VALIDATE,'callback',self::ADMIN_TEST_BEFORE),
+        array('scence_id', 'is_scence_id_pass', '[test]不存在该场景', self::MUST_VALIDATE,'callback',self::ADMIN_TEST_BEFORE),
         array('test_data_group_index', 'is_test_data_group_index_pass', '[test]不存在测试数据组', self::MUST_VALIDATE,'callback',self::ADMIN_TEST_BEFORE),
         array('test_data_items_index', 'is_test_data_items_index_pass', '[test]不存在测试数据item', self::MUST_VALIDATE,'callback',self::ADMIN_TEST_BEFORE),
 
@@ -121,8 +121,8 @@ class AdminTestLog_batModel extends CommonModel{
         return true;
     }
 
-    protected function is_sence_id_pass($sence_id=0){
-        $this->tmp_data['sence_id'] = $sence_id;
+    protected function is_scence_id_pass($scence_id=0){
+        $this->tmp_data['scence_id'] = $scence_id;
         return true;
     }
 
@@ -138,12 +138,12 @@ class AdminTestLog_batModel extends CommonModel{
 
     // 待废弃
     protected function get_this_model_test_data(){
-        $this->tmp_data['all_data']       = D('Admin','Test')->getTestData($this->tmp_data['sence_id'],$this->tmp_data['test_data_group_index'],$this->tmp_data['test_data_items_index'],$this->tmp_data['uuid']);
-        $this->tmp_data['handle_action']  = D('Admin','Test')->getActionName($this->tmp_data['sence_id']);
-        $this->tmp_data['success_assert'] = D('Admin','Test')->getSuccessAssert($this->tmp_data['sence_id']);
+        $this->tmp_data['all_data']       = D('Admin','Test')->getTestData($this->tmp_data['scence_id'],$this->tmp_data['test_data_group_index'],$this->tmp_data['test_data_items_index'],$this->tmp_data['uuid']);
+        $this->tmp_data['handle_action']  = D('Admin','Test')->getActionName($this->tmp_data['scence_id']);
+        $this->tmp_data['success_assert'] = D('Admin','Test')->getSuccessAssert($this->tmp_data['scence_id']);
         $this->tmp_data['handle_object']  = D('Admin','Test')->getHandleObject();
 
-        $this->tmp_data['test_title']     = D('Admin','Test')->getTestTitle($this->tmp_data['sence_id']);
+        $this->tmp_data['test_title']     = D('Admin','Test')->getTestTitle($this->tmp_data['scence_id']);
     }
 
     protected function get_this_model_test_data_by_test_id($test_id){
@@ -152,18 +152,18 @@ class AdminTestLog_batModel extends CommonModel{
         $Plugins        = $test_info['is_plugin'] ? 'Plugins://' : '';
         $module_name    = $test_info['module_name'];
         $model_name     = $test_info['model_name'];
-        $sence_id       = $test_info['sence_id'];
+        $scence_id       = $test_info['scence_id'];
         $group_id       = $test_info['group_id'];
         $handle_object  = $test_info['handle_object'];
         $handle_action  = $test_info['handle_action'];
 
         $modelTest      = D($Plugins.$module_name.'/'.$model_name,'Test');
 
-        $this->tmp_data['all_data']       = $modelTest->getTestData($sence_id,$this->tmp_data['test_data_group_index'],$this->tmp_data['test_data_items_index'],$test_id);
-        $this->tmp_data['handle_action']  = $modelTest->getActionName($sence_id);
-        $this->tmp_data['success_assert'] = $modelTest->getSuccessAssert($sence_id);
+        $this->tmp_data['all_data']       = $modelTest->getTestData($scence_id,$this->tmp_data['test_data_group_index'],$this->tmp_data['test_data_items_index'],$test_id);
+        $this->tmp_data['handle_action']  = $modelTest->getActionName($scence_id);
+        $this->tmp_data['success_assert'] = $modelTest->getSuccessAssert($scence_id);
         $this->tmp_data['handle_object']  = $modelTest->getHandleObject();
-        $this->tmp_data['test_title']     = $modelTest->getTestTitle($sence_id);
+        $this->tmp_data['test_title']     = $modelTest->getTestTitle($scence_id);
 
 
 

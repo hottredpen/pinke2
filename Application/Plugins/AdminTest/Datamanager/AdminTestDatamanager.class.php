@@ -26,7 +26,7 @@ class AdminTestDatamanager extends BaseDatamanager{
                 $newlist[$key]['units_test'] .= "<div>".$value2['test_title'];
                 foreach ($value2['test_data'] as $key3 => $value3) {
 
-                    $newlist[$key]['units_test'] .= "<div style='margin-left:20px;'>{$key3}-最近测试情况------<a href='".U('Admin/AdminTest/addAdminTest',array('module_name'=>ucfirst($module_name),'model_name'=>$model_name,'sence_id'=>$key2,'group_id'=>$key3))."'>进入配置</a></div>";
+                    $newlist[$key]['units_test'] .= "<div style='margin-left:20px;'>{$key3}-最近测试情况------<a href='".U('Admin/AdminTest/addAdminTest',array('module_name'=>ucfirst($module_name),'model_name'=>$model_name,'scence_id'=>$key2,'group_id'=>$key3))."'>进入配置</a></div>";
 
                 }    
                 $newlist[$key]['units_test'] .= "</div>";
@@ -39,7 +39,7 @@ class AdminTestDatamanager extends BaseDatamanager{
 
                 foreach ($value2['test_data'] as $key3 => $value3) {
 
-                    $newlist[$key]['groups_test'] .= "<div style='margin-left:20px;'>{$key3}-最近测试情况------<a href='".U('Admin/AdminTest/addAdminTest',array('module_name'=>ucfirst($module_name),'model_name'=>$model_name,'sence_id'=>$key2,'group_id'=>$key3))."'>进入配置</a></div>";
+                    $newlist[$key]['groups_test'] .= "<div style='margin-left:20px;'>{$key3}-最近测试情况------<a href='".U('Admin/AdminTest/addAdminTest',array('module_name'=>ucfirst($module_name),'model_name'=>$model_name,'scence_id'=>$key2,'group_id'=>$key3))."'>进入配置</a></div>";
 
                 }  
                 

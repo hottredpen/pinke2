@@ -5,7 +5,7 @@ var page_trigger = {
 		var obj = {};
 		var admin_list_ids_arr = [];
 		var test_data_assert_index_arr = [];
-		var sence_id;
+		var scence_id;
 		var uuid;
 	
 		var max_data_index= 0;

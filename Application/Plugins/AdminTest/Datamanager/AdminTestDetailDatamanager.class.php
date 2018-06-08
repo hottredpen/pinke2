@@ -12,14 +12,14 @@ class AdminTestDetailDatamanager extends BaseDatamanager{
         $test_data   = M('admin_test')->where(array('id'=>$test_id))->find();
         $module_name = $test_data['module_name'];
         $model_name  = $test_data['model_name'];
-        $sence_id    = $test_data['sence_id'];
+        $scence_id    = $test_data['scence_id'];
         $group_id    = (int)$test_data['group_id'];
         $Plugins     = $test_data['is_plugin'] ? 'Plugins://' : '';
         $modelTest   = D($Plugins.$module_name.'/'.$model_name,'Test');
 
         C('admin_test.post_data',unserialize($test_data['success_post_data']));
         // 获取数据断言信息
-        $assert_data = $modelTest->getAssertDataBySenceId($sence_id);
+        $assert_data = $modelTest->getAssertDataBySenceId($scence_id);
         // dump($assert_data);
         // exit();
         // 变量赋值
