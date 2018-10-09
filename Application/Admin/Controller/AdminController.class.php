@@ -45,11 +45,6 @@ class AdminController extends BackController{
             'updateAdminUploadconfig' => 'AdminUploadconfig/updateAdminUploadconfig',
             'deleteAdminUploadconfig' => 'AdminUploadconfig/deleteAdminUploadconfig',
 
-            // Cache
-            'cache'                   => 'Cache/cache',
-            'cacheclear'              => 'Cache/cacheclear',
-            'qclear'                  => 'Cache/qclear',
-
             // AdminLog
             'adminlog'                => 'AdminLog/adminlog',
 

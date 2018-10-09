@@ -162,7 +162,7 @@ class CommonBaseController extends Controller {
     /**
      * 所有模块通用的调用layout
      */
-    protected function layoutDisplay($templateFile,$layout="Public:base"){
+    protected function layoutDisplay($templateFile="",$layout="Public:base"){
         $this->_layoutDisplay($templateFile,$layout);
     }
 
@@ -174,7 +174,7 @@ class CommonBaseController extends Controller {
         $this->_layoutDisplay($templateFile,$layout);
     }
 
-    private function _layoutDisplay($templateFile,$layout="Public:base"){
+    private function _layoutDisplay($templateFile="",$layout="Public:base"){
         if(strstr(strtolower($templateFile),'common@builder')){
             C('DEFAULT_THEME','');
         }

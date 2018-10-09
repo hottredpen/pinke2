@@ -56,7 +56,7 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
                 ->addTableColumn('handle_object', 'handle_object')
                 ->addTableColumn('handle_action', 'handle_action')
                 ->addTableColumn('model_name', 'model_name')
-                ->addTableColumn('sence_id', 'sence_id')
+                ->addTableColumn('scene_id', 'scene_id')
                 ->addTableColumn('group_id', 'group_id')
                 ->addTableColumn('status', '测试状态', 'status')
                 ->addTableColumn('is_init', '数据初始化', 'status')
@@ -65,7 +65,7 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
                 ->setPage($data_num,$page_size)
                 ->addRightButton('custom',array('title'=>'修改','href'=>U('admin/adminTest/editAdminTest',array('id'=>'__id__'))))
                 ->addRightButton('custom',array('title'=>'测试','href'=>U('admin/adminTest/startAdminTest',array('id'=>'__id__'))))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteAdminTest','data-itemname'=>'测试'))
+                ->addRightButton('confirm',array('data-action'=>'deleteAdminTest','data-itemname'=>'测试'))
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');
     }
@@ -75,7 +75,7 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
         $plugin_name = I('plugin_name','','trim'); // todo
         $module_name = I('module_name','','trim');
         $model_name  = I('model_name','','trim');
-        $sence_id    = I('sence_id',11,'intval');
+        $scene_id    = I('scene_id',11,'intval');
         $group_id    = I('group_id',0,'intval');
 
         if($pk_plugin_name != ''){
@@ -85,16 +85,16 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
         }
         $modelTest       = D($Plugins.$module_name.'/'.$model_name,'Test');
 
-        $formPostItems  = $modelTest->formPostItems($sence_id,$group_id);
+        $formPostItems  = $modelTest->formPostItems($scene_id,$group_id);
         $info           = $modelTest->getPostDefaultValue();
         $info['_pk_is_plugin']      = $Plugins == "" ? 0 : 1;
 
         $info['_pk_module_name']    = $module_name;
         $info['_pk_model_name']     = $model_name;
-        $info['_pk_sence_id']       = $sence_id;
+        $info['_pk_scene_id']       = $scene_id;
         $info['_pk_group_id']       = $group_id;
         $info['_pk_handle_object']  = $modelTest->getHandleObject();
-        $info['_pk_handle_action']  = $modelTest->getHandleAction($sence_id);
+        $info['_pk_handle_action']  = $modelTest->getHandleAction($scene_id);
         $info['_pk_is_plugin']      = $modelTest->getIsPlugin();
 
         $builder  = D('Admin/Form','Builder');
@@ -105,7 +105,7 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
                 ->setFormData($info)
                 ->addFormItem("_pk_module_name",'hidden')
                 ->addFormItem("_pk_model_name",'hidden')
-                ->addFormItem("_pk_sence_id",'hidden')
+                ->addFormItem("_pk_scene_id",'hidden')
                 ->addFormItem("_pk_group_id",'hidden')
                 ->addFormItem("_pk_handle_object",'hidden')
                 ->addFormItem("_pk_handle_action",'hidden')
@@ -122,21 +122,21 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
         $Plugins        = $test_info['is_plugin'] ? 'Plugins://' : '';
         $module_name    = $test_info['module_name'];
         $model_name     = $test_info['model_name'];
-        $sence_id       = $test_info['sence_id'];
+        $scene_id       = $test_info['scene_id'];
         $group_id       = $test_info['group_id'];
         $handle_object  = $test_info['handle_object'];
         $handle_action  = $test_info['handle_action'];
 
         $modelTest      = D($Plugins.$module_name.'/'.$model_name,'Test');
 
-        $formPostItems  = $modelTest->formPostItems($sence_id,$group_id);
+        $formPostItems  = $modelTest->formPostItems($scene_id,$group_id);
 
         // dump($info);
         // exit();
         $info     = unserialize($test_info['success_post_data']);
         $info['_pk_module_name']   = $module_name;
         $info['_pk_model_name']    = $model_name;
-        $info['_pk_sence_id']      = $sence_id;
+        $info['_pk_scene_id']      = $scene_id;
         $info['_pk_group_id']      = $group_id;
         $info['_pk_handle_object'] = $handle_object;
         $info['_pk_handle_action'] = $handle_action;
@@ -151,7 +151,7 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
                 ->setFormData($info)
                 ->addFormItem("_pk_module_name",'hidden')
                 ->addFormItem("_pk_model_name",'hidden')
-                ->addFormItem("_pk_sence_id",'hidden')
+                ->addFormItem("_pk_scene_id",'hidden')
                 ->addFormItem("_pk_group_id",'hidden')
                 ->addFormItem("_pk_handle_object",'hidden')
                 ->addFormItem("_pk_handle_action",'hidden')
@@ -170,14 +170,14 @@ class AdminTestAdmin extends AdminTestBaseAdmin {
         $Plugins        = $test_info['is_plugin'] ? 'Plugins://' : '';
         $module_name    = $test_info['module_name'];
         $model_name     = $test_info['model_name'];
-        $sence_id       = $test_info['sence_id'];
+        $scene_id       = $test_info['scene_id'];
         $group_id       = $test_info['group_id'];
         $handle_object  = $test_info['handle_object'];
         $handle_action  = $test_info['handle_action'];
 
         $modelTest      = D($Plugins.$module_name.'/'.$model_name,'Test');
 
-        $test_data  = $modelTest->getUnitTestData($sence_id,$group_id,$id);
+        $test_data  = $modelTest->getUnitTestData($scene_id,$group_id,$id);
 
         $this->assign('test_data',$test_data);
         $this->assign('id',$id);

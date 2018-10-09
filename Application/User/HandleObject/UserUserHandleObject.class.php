@@ -5,11 +5,7 @@ namespace User\HandleObject;
  * 管理员操作对象
  */
 class UserUserHandleObject{
-	protected $uid;
-    function __construct($uid=0) {
-        $this->uid = (int)$uid;
-    }
-
+    
     public function login($username="",$password=""){
     	$userModel  = D('User/User');
     	$post_data['username'] = $username;

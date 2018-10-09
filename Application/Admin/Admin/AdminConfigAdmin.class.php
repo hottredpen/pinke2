@@ -34,7 +34,7 @@ class AdminConfigAdmin extends AdminBaseAdmin {
                 ->setTableDataList($data_list)
                 ->setPage($data_num,$page_size)
                 ->addRightButton('layer',array('data-action'=>'editAdminConfig','data-width'=>"800px",'data-height'=>'520px','data-title'=>'编辑-配置'))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteAdminConfig','data-itemname'=>'配置'))
+                ->addRightButton('confirm',array('data-action'=>'deleteAdminConfig','data-itemname'=>'配置'))
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');
     }

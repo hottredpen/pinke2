@@ -6,17 +6,9 @@ use Admin\HandleObject\BaseHandleObject;
  * 管理员操作对象
  */
 class UserAdminHandleObject extends BaseHandleObject{
-	protected $uid;
-    function __construct($uid=0) {
-        parent::__construct($uid);
-        $this->uid = (int)$uid;
-    }
-
 
     public function createUser(){
-        // 同时对仓储进行操作
-        C('TRANS_START_METHOD',__METHOD__); // 多层事务嵌套时，获取第一个common_plus_start_trans的__METHOD__，
-        C('TRANS_END_METHOD',__METHOD__);  
+        common_plus_trans_origin(__METHOD__);
 
         $userModel  = D('User/User');
         $thisConfig = D("User/User",'ModelSafety')->getConfigData("createUser");

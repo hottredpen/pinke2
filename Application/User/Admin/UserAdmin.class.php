@@ -39,7 +39,7 @@ class UserAdmin extends UserBaseAdmin {
                 ->setPage($data_num,$page_size)
                 ->addRightButton('layer',array('title'=>'发消息','data-action'=>'sendform_sendMsg','data-width'=>"800px",'data-height'=>'630px','data-title'=>'发消息'))
                 ->addRightButton('layer',array('data-action'=>'editUser','data-width'=>"800px",'data-height'=>'630px','data-title'=>'编辑-用户信息'))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteUser','data-itemname'=>'用户'))
+                ->addRightButton('confirm',array('data-action'=>'deleteUser','data-itemname'=>'用户'))
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');
     }

@@ -172,9 +172,9 @@ class UploadObject{
             case 8297: $fileType   = 'rar'; break;
             default: $fileType     = 'unknown';
         }
-        if($fileType == "unknown" ||  !in_array(trim($this->ext,"."), explode("|", $fileType)) ){
-            return array("error"=>1,"info"=>'不允许的文件格式或被篡改过的文件格式');
-        }
+        // if($fileType == "unknown" ||  !in_array(trim($this->ext,"."), explode("|", $fileType)) ){
+        //     return array("error"=>1,"info"=>'不允许的文件格式或被篡改过的文件格式');
+        // }
         return array("error"=>0,"info"=>'这是一个'.$fileType.' file:'.$typeCode);
     }
 

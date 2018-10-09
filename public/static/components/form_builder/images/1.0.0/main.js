@@ -145,9 +145,9 @@ var component = {
                         } else {
                             $file_ids_input.val(response.data.fileid);
                         }
-                        _order_file_ids();
                         $li.find('.remove-picture').attr('data-id', response.data.fileid);
                         $li.attr('data-id', response.data.fileid);
+                        _order_file_ids();
                     }
 
                     $li.find('.file-state').html('<div class="bg-'+response.class+'">'+response.msg+'</div>');
@@ -199,13 +199,8 @@ var component = {
                 });
 
                 $('.dd').nestable({ maxDepth: 1 }).on('change', function(e){
-           
                     _order_file_ids();
-
                 }.bind(this));
-
-
-
 		}
 
 		return obj;

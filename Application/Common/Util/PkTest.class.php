@@ -12,15 +12,15 @@ class PkTest {
     public $test_success_info;
 
 
-    private $sence_id;
+    private $scene_id;
     private $test_data_group_index;
     private $test_data_items_index;
 
-    public function init($model="",$sence_id=11,$local_no=""){
+    public function init($model="",$scene_id=11,$local_no=""){
         $local_no_arr     = explode("-", $local_no);
 
         $this->model                 = $model;
-        $this->sence_id              = $sence_id;
+        $this->scene_id              = $scene_id;
         $this->test_data_group_index = (int)$local_no_arr[0];
         $this->test_data_items_index = (int)$local_no_arr[1];
     }

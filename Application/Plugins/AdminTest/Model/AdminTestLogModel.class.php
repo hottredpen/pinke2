@@ -77,8 +77,8 @@ class AdminTestLogModel extends CommonModel{
         return true;
     }
 
-    protected function is_sence_id_pass($sence_id=0){
-        $this->tmp_data['sence_id'] = $sence_id;
+    protected function is_scene_id_pass($scene_id=0){
+        $this->tmp_data['scene_id'] = $scene_id;
         return true;
     }
 
@@ -98,18 +98,18 @@ class AdminTestLogModel extends CommonModel{
         $Plugins        = $test_info['is_plugin'] ? 'Plugins://' : '';
         $module_name    = $test_info['module_name'];
         $model_name     = $test_info['model_name'];
-        $sence_id       = $test_info['sence_id'];
+        $scene_id       = $test_info['scene_id'];
         $group_id       = $test_info['group_id'];
         $handle_object  = $test_info['handle_object'];
         $handle_action  = $test_info['handle_action'];
 
         $modelTest      = D($Plugins.$module_name.'/'.$model_name,'Test');
 
-        $this->tmp_data['all_data']        = $modelTest->getTestData($sence_id,$this->tmp_data['test_data_group_index'],$this->tmp_data['test_data_items_index'],$test_id);
-        $this->tmp_data['handle_action']   = $modelTest->getHandleAction($sence_id);
-        $this->tmp_data['success_assert']  = $modelTest->getSuccessAssert($sence_id);
+        $this->tmp_data['all_data']        = $modelTest->getTestData($scene_id,$this->tmp_data['test_data_group_index'],$this->tmp_data['test_data_items_index'],$test_id);
+        $this->tmp_data['handle_action']   = $modelTest->getHandleAction($scene_id);
+        $this->tmp_data['success_assert']  = $modelTest->getSuccessAssert($scene_id);
         $this->tmp_data['handle_object']   = $modelTest->getHandleObject();
-        $this->tmp_data['test_title']      = $modelTest->getTestTitle($sence_id);
+        $this->tmp_data['test_title']      = $modelTest->getTestTitle($scene_id);
         
         $this->tmp_data['is_plugin']       = $modelTest->getIsPlugin();
         $this->tmp_data['module_name']     = $modelTest->getModuleName();

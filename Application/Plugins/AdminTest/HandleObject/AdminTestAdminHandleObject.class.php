@@ -5,26 +5,20 @@ use Admin\HandleObject\BaseHandleObject;
  * 管理员操作对象
  */
 class AdminTestAdminHandleObject extends BaseHandleObject {
-    protected $uid;
-    function __construct($uid=0) {
-        parent::__construct($uid);
-        define('PK_ADMIN_HANDLEOBJECT','AdminTest');
-        $this->uid = (int)$uid;
-    }
 
     public function createAdminTest(){
 
         $model = D('Plugins://AdminTest/AdminTest');
         $post['module_name']       = $_POST['_pk_module_name'];
         $post['model_name']        = $_POST['_pk_model_name'];
-        $post['sence_id']          = $_POST['_pk_sence_id'];
+        $post['scene_id']          = $_POST['_pk_scene_id'];
         $post['group_id']          = $_POST['_pk_group_id'];
         $post['handle_object']     = $_POST['_pk_handle_object'];
         $post['handle_action']     = $_POST['_pk_handle_action'];
         $post['is_plugin']         = $_POST['_pk_is_plugin'];
         $post['success_post_data'] = $this->_success_post_data($_POST); // todo剔除无用的
         $_POST = null;
-        if (!$model->field('module_name,model_name,sence_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,11)){
+        if (!$model->field('module_name,model_name,scene_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,11)){
             return array("error"=>1,"info"=>$model->getError());
         }
         // test
@@ -42,14 +36,14 @@ class AdminTestAdminHandleObject extends BaseHandleObject {
         $model = D('Plugins://AdminTest/AdminTest');
         $post['module_name']       = $_POST['_pk_module_name'];
         $post['model_name']        = $_POST['_pk_model_name'];
-        $post['sence_id']          = $_POST['_pk_sence_id'];
+        $post['scene_id']          = $_POST['_pk_scene_id'];
         $post['group_id']          = $_POST['_pk_group_id'];
         $post['handle_object']     = $_POST['_pk_handle_object'];
         $post['handle_action']     = $_POST['_pk_handle_action'];
         $post['is_plugin']         = $_POST['_pk_is_plugin'];
         $post['success_post_data'] = $this->_success_post_data($_POST); // todo剔除无用的
         $_POST = null;
-        if (!$model->field('id,module_name,model_name,sence_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,12)){
+        if (!$model->field('id,module_name,model_name,scene_id,group_id,handle_object,handle_action,is_plugin,success_post_data')->create($post,12)){
             return array("error"=>1,"info"=>$model->getError());
         }
         // test

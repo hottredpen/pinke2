@@ -5,22 +5,14 @@ namespace Admin\HandleObject;
  * 管理员操作对象
  */
 class BaseHandleObject {
-	
-    protected $uid;
     protected $_extend_module;
-
-    public function __construct($uid) {
-    	if((int)$uid>0){
-    		$this->uid = $uid;
-    	}
-    }
     /**
      * 做登录或者权限检测
      * 对外方法public 改成private 就可以进行权限检测
      * 
      */
     public function __call($method, $args) {
-        if((int)$this->uid == 0){
+        if(admin_session_admin_id() == 0){
             return array('error'=>1,'info'=>'请登录之后操作');
         }
         // 检查是否存在方法$method

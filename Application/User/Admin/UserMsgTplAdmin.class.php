@@ -27,7 +27,7 @@ class UserMsgTplAdmin extends UserBaseAdmin {
                 ->setTableDataList($data_list)
                 ->setPage($data_num,$page_size)
                 ->addRightButton('layer',array('data-action'=>'editform_UserMsgTpl','data-width'=>"900px",'data-height'=>'630px','data-title'=>'编辑-信件模板'))
-                ->addRightButton('delete_confirm',array('data-action'=>'deleteUserMsgTpl','data-itemname'=>'信件模板'))
+                ->addRightButton('confirm',array('data-action'=>'deleteUserMsgTpl','data-itemname'=>'信件模板'))
                 ->assign_builder()
                 ->admindisplay('Common@builder:ListBuilder');
 
