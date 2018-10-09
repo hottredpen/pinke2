@@ -11,13 +11,18 @@ require.config({
             exports    : 'pjax'
         },
         'nprogress':{
-            deps : ['css!nprogress_css'],
-            exports: 'nprogress'
+            deps       : ['css!nprogress_css'],
+            exports    : 'nprogress'
+        },
+        'ueditor' : {
+            deps       : ['ueditor_config'],
+            exports    : 'ueditor'
         },
         // 以下非核心
         'jquery_datepicker' : ['jquery','css!jquery_datepicker_css'],
         'jquery_fancybox'   : ['jquery','css!jquery_fancybox_css'],
         'jquery_treetable'  : ['jquery'],
+        'jquery_nestable'   : ['jquery'],
     },
     paths: {
         // domReady
@@ -46,6 +51,8 @@ require.config({
         // fancybox
         // 'fancybox'        : "../../../bower_components/fancybox/dist/jquery.fancybox.min",
         // 'fancybox_css'    : "../../../bower_components/fancybox/dist/jquery.fancybox",
+        'ueditor'         : "../../../static/pk/ueditor/ueditor.all.min",
+        'ueditor_config'  : "../../../static/pk/ueditor/ueditor.config",
 
         // 以下非核心
         'artdialog'             : "../../../bower_components/artDialog/dist/dialog-min",
@@ -55,6 +62,7 @@ require.config({
         'jquery_treetable'      : "../../../bower_components/jquery-treetable/jquery.treetable",
         'jquery_fancybox'       : "../../../bower_components/fancybox/dist/jquery.fancybox.min",
         'jquery_fancybox_css'   : "../../../bower_components/fancybox/dist/jquery.fancybox",
+        'jquery_nestable'       : "../../../bower_components/nestable/jquery.nestable",
 
     },
     map: {
@@ -65,7 +73,7 @@ require.config({
 });
 // common_sys_build 为系统内部调用
 // common_dev_build 第三方开发者的js入口
-define(['common_sys_build','common_dev_build','bootstrap'],function(){
+define(['common_sys_build','common_dev_build','bootstrap','jquery_fancybox'],function(){
     // 初始化时用到的js(此处是实验用地，非正式，未归类的js)
     $(function(){
     // $.fancybox({

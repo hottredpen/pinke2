@@ -32,6 +32,8 @@
     "fancybox": "fancyBox#^3.3.5",
     "layui": "lay#2.2.5",
     "font-awesome": "Font-Awesome#4.7.0",
-    "fex-webuploader": "^0.1.5"
+    "fex-webuploader": "^0.1.5",
+    "nestable": "*",
+    "jquery-treetable": "^3.2.0"
   }
 }
